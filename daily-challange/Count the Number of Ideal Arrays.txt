@@ -1,0 +1,38 @@
+2338. Count the Number of Ideal Arrays
+
+n = 2, maxValue = 5
+
+ideal array = [_,_]
+
+Every arr[i] is a value from 1 to maxValue, for 0 <= i < n.
+Every arr[i] is divisible by arr[i - 1], for 0 < i < n.
+
+
+idx = 0 -> 5 possible values (1 to 5)
+
+arr[0] = 1 -> 5 possible ideal arr<- find multiples of 1 in range of [1,maxValue]
+
+arr[0] = 2 -> find multiples of 2 in range of [1,maxValue] => only 2 possible 2,4
+
+arr[0] = 3 -> find multiples of 3 in range of [1,maxValue] => only 1 possible 3
+ 
+
+n = 5, maxValue = 3
+
+range -> 1 to 3
+
+ideal arr = [_,_,_,_,_]
+
+arr[0] = 1 -> [1,1,1,1,1], [1,1,1,1,2], [1,1,1,1,3] <- 3 is upper limit,backtrack
+			  [1,2,1,_,_] <- invalid, backtrack 
+			  [1,2,2,1,_] <- invalid, backtrack
+			  [1,2,2,2,1] <- invalid, backtrack
+			  [1,2,2,2,2] <- valid
+			  [1,2,2,2,3] <- invalid, backtrack
+			  [1,3,1,_,_] <- ""
+			  [1,3,3,1,_] <- invalid
+			  [1,3,3,3,1] <- invalid
+			  [1,3,3,3,3] <- valid
+
+
+
